@@ -1,0 +1,132 @@
+<div *ngIf="flag3 == 0" class="loader"></div>
+<div *ngIf="flag3 != 0">
+    <div class="row">
+        <h1 mat-dialog-title class="col-sm-8 b-r">Crear Hero</h1>
+        <button mat-button (click)="createUser();" class="col-sm-4 b-r">Crear Usuario</button>
+    </div>
+    <mat-dialog-content class="mat-typography">
+        <div class="row">
+            <div class="col-sm-4 b-r">
+                <mat-form-field>
+                    <mat-select placeholder="tipo de documento" [(ngModel)]="type">
+                        <mat-option value="Cédula de ciudadanía">Cédula de ciudadanía</mat-option>
+                        <mat-option value="Pasaporte">Pasaporte</mat-option>
+                        <mat-option value="Cédula de extranjería">Cédula de extranjería</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-8 b-r">
+                <mat-form-field class="example-full-width">
+                    <input type="number" matInput placeholder="Número de documento:" [(ngModel)]="NumDoc">
+                    <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row" mat-dialog-actions>
+            <label class="col-sm-6 b-r">Subir documento de identidad parte delantera</label>
+            <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="identiFront($event.target.files)">
+            <mat-icon matSuffix>cloud_upload</mat-icon>
+        </div><br><br>
+        <span *ngIf="flag4" style="color: red">{{message[1]}}</span>
+
+        <div class="row" mat-dialog-actions>
+            <label class="col-sm-6 b-r">Subir documento de identidad parte trasera</label>
+            <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="identiBack($event.target.files)">
+            <mat-icon matSuffix>cloud_upload</mat-icon>
+        </div><br><br>
+        <span *ngIf="flag4" style="color: red">{{message[2]}}</span><br>
+        <label>Selecciona la fecha de vencimiento de la licencia.</label><br>
+        <div class="row" mat-dialog-actions>
+            <mat-form-field>
+                <input id="date" [(ngModel)]="date" matInput [matDatepicker]="picker" placeholder="Selecciona la fecha de vencimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div><br>
+
+        <div class="row" mat-dialog-actions>
+            <label class="col-sm-6 b-r">Subir licencia de conducción parte trasera</label>
+            <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="licen($event.target.files)">
+            <mat-icon matSuffix>cloud_upload</mat-icon>
+        </div><br>
+        <span *ngIf="flag4" style="color: red">{{message[3]}}</span>
+
+        <div class="row" mat-dialog-actions>
+            <label class="col-sm-6 b-r">Subir licencia de conducción parte trasera</label>
+            <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="licenBack($event.target.files)">
+            <mat-icon matSuffix>cloud_upload</mat-icon>
+        </div><br>
+        <span *ngIf="flag4" style="color: red">{{message[4]}}</span>
+
+        <form class="example-form" [formGroup]="form">
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Nombre" formControlName="name" required>
+                <div *ngIf="!form.controls.name.valid && form.controls.name.dirty">
+                    <span style="color: red" class="help-block m-b-none error">El nombre es requerido y debe tener solo letras.</span>
+                </div>
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Apellido" formControlName="lastName" required>
+                <div *ngIf="!form.controls.lastName.valid && form.controls.lastName.dirty">
+                    <span style="color: red" class="help-block m-b-none error">El apellido es requerido y debe tener solo letras.</span>
+                </div>
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="email" matInput placeholder="Correo" formControlName="email">
+                <div *ngIf="!form.controls.email.valid && form.controls.email.dirty">
+                    <span style="color: red" class="help-block m-b-none error">Ingrese un correo valido</span>
+                </div>
+
+                <mat-icon matSuffix> mail_outline</mat-icon>
+            </mat-form-field>
+
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput placeholder="Ingresa una clave" [type]="hide ? 'password' : 'text'" formControlName="pwd">
+                    <div *ngIf="!form.controls.pwd.valid && form.controls.pwd.dirty">
+                        <span style="color: red" class="help-block m-b-none error">Introduzca un clave que tenga minimo ocho caracteres</span>
+                    </div>
+
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Teléfono" formControlName="phone">
+                <mat-icon matSuffix> call</mat-icon>
+            </mat-form-field>
+
+            <div class="row" mat-dialog-actions>
+                <label class="col-sm-6 b-r">Foto de perfil (opcional).</label>
+                <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="photoProfile($event.target.files)">
+                <mat-icon matSuffix>cloud_upload</mat-icon>
+            </div><br>
+            <span *ngIf="flag4" style="color: red">{{message[0]}}</span>
+
+        </form>
+
+        <form class="example-form" [formGroup]="formEmails">
+            <mat-form-field class="example-full-width">
+                <input type="email" matInput placeholder="Correo opcional uno" formControlName="mail1">
+                <mat-icon matSuffix> mail_outline</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="email" matInput placeholder="Correo opcional dos" formControlName="mail2">
+                <mat-icon matSuffix> mail_outline</mat-icon>
+            </mat-form-field>
+        </form>
+
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <!-- <button mat-raised-button class="btn btn-primary" (click)="test();">Cancelar</button> -->
+        <button mat-raised-button class="btn btn-danger" (click)="close();">Cancelar</button>
+        <button [disabled]="aux1 != 1 || aux2 != 1 || aux3 != 1 || aux4 != 1 || flag1 == true || formEmails.status == 'INVALID' || date == '' || date == undefined || date == null || NumDoc == '' || NumDoc == undefined || type == null || form.status == 'INVALID'"
+            mat-raised-button class="btn btn-primary" (click)="save();">Guardar</button>
+    </div>
+</div>

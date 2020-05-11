@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="Ingresa la nueva clave." type="password" formControlName="pwd" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <input matInput placeholder="Repite la nueva clave." type="password" formControlName="pwd1" required>
+        </mat-form-field><br>
+        <a (click)="changePwd();">Cambiar clave.</a>
+    </div>
+</form>    

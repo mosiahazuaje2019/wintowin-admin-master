@@ -1,0 +1,43 @@
+<nav class="navbar navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-default "><i class="fa fa-bars"></i> </a>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle count-info" data-toggle="dropdown">
+                <div class="admin {{tooltip}}">
+                    <div *ngIf="flag == true">
+                        <a *ngIf="tooltip == 'close'" (click)="open();" class="dropdown-toggle">
+                            <i class="fa fa-user-circle  fa-2x"></i>
+                            <span> Admin </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <a *ngIf="tooltip == 'open'" (click)="close();" class="dropdown-toggle">
+                            <i class="fa fa-user-circle  fa-2x"></i>
+                            <span> Admin </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                    <div *ngIf="flag == false">
+                        <a *ngIf="tooltip == 'close'" (click)="open();" class="dropdown-toggle">
+                            <img class="img1" src="{{img}}" alt="">
+                            <span> Admin </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <a *ngIf="tooltip == 'open'" (click)="close();" class="dropdown-toggle">
+                            <img class="img1" src="{{img}}" alt="">
+                            <span> Admin </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a (click)="changePhoto();">Cambiar foto</a></li>
+                        <li><a (click)="changePwd();">Cambiar contraseña</a></li>
+                        <li class="divider"></li>
+                        <li><a (click)="logOut();">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>

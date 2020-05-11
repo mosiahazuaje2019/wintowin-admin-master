@@ -1,0 +1,15 @@
+<div *ngIf="flag == 2"><h2 class="text-center">No se ha cargado una imagen</h2></div>
+<div class="text-center" *ngIf="date != undefined && flag == 1">
+    <p>Fecha de vencimiento: {{date}}</p>
+</div>
+<div class="text-center">
+    <img *ngIf="flag == 1" src="{{photoSoatBack}}" id="image"/>
+</div>
+<div *ngIf="flag == 1" class="text-center">
+    <a (click)="rotate(-90)" class="btn">
+        <i class="fa fa-reply"></i>
+    </a>
+    <a (click)="rotate(90)" class="btn">
+        <i class="fa fa-share"></i>
+    </a>
+</div>

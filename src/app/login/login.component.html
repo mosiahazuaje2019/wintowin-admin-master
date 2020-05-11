@@ -1,0 +1,26 @@
+<div class="app-inicio-sesion">
+  <div class="middle-box text-center loginscreen animated fadeInDown">
+    <div class="centerForm">
+      <div class="form-group">
+        <img class="logo" src="../../assets/img/logo.png" alt="">
+      </div>   
+      <div *ngIf="flag == 1" class="alert alert-danger alert-dismissible fade in">
+        Disculpa tenemos problemas de conexión, intentalo en unos minutos.<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      </div>  
+      <div *ngIf="flag == 2" class="alert alert-danger alert-dismissible fade in">
+        Los datos introducidos son incorrectos<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      </div>  
+      <form [formGroup]="form" (keydown)="keyDownFunction($event)">
+        <div style="margin-left: 40%;" *ngIf="flag == 0" class="loader"></div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Correo"  formControlName="email">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="contraseña"  formControlName="pwd">
+        </div>
+      </form>
+      <button class="btn btn-white block full-width m-b" [disabled]="form.status == 'INVALID'" (click)="login();">Iniciar sesión</button>
+      <a class="btn btn-white block full-width m-b" (click)="recovery();" >¿Olvidaste tu clave?</a>
+    </div>
+  </div>
+</div>

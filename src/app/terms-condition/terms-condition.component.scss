@@ -1,0 +1,86 @@
+#page-wrapper {
+    padding: inherit;
+}
+
+.btn-primary {
+    background: rgb(91, 166, 236);
+    border: rgb(91, 166, 236);
+    border-radius: 10px 10px 10px 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary1 {
+    background: rgb(91, 166, 236);
+    border: rgb(91, 166, 236);
+    border-radius: 10px 10px 10px 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    width: 10px;
+}
+
+.btn-primary:hover {
+    background-color: gray;
+}
+
+.btn-primary1:hover {
+    background-color: gray;
+}
+
+input {
+    border-color: black;
+}
+
+input:focus {
+    border-color: black;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    /* Light grey */
+    border-top: 10px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin-right: -50%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.espaciado {
+    width: 10%;
+    padding-left: 12px;
+}
+
+.margin {
+    width: 50px;
+}
+
+.container {
+    position: relative;
+    max-width: 900px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+  
+  .comment-text-area {
+    float: right;
+    width: calc(100% - 45px);
+    height: auto;
+    background-color: red;
+  }
+  
+  .textinput {
+    float:left;
+    width: 100%;
+    min-height: 35px;
+    outline: none;
+    resize: none;
+    border: 1px solid gray;
+  }
+  

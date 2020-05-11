@@ -1,0 +1,90 @@
+span {
+    color: rgb(91, 166, 236);
+}
+
+#page-wrapper {
+    padding: inherit;
+}
+
+select {
+    width: 14%;
+}
+
+img {
+    margin-left: 15%;
+    margin-right: 20%;
+}
+
+.position {
+    margin-left: 75%;
+}
+
+.positionE {
+    margin-left: 20%;
+}
+
+span {
+    margin-left: 20%;
+}
+
+input {
+    width: 30%;
+    border-color: black;
+}
+
+input:focus {
+    border-color: black;
+}
+
+.heightx {
+    height: 30px;
+}
+
+.btn-primary {
+    background: rgb(91, 166, 236);
+    border: rgb(91, 166, 236);
+    border-radius: 10px 10px 10px 10px;
+    width: 20%;
+    margin: 10px;
+    font-size: 15px;
+}
+
+.btn-secondary {
+    background: rgb(91, 166, 236);
+    border: rgb(91, 166, 236);
+    border-radius: 10px 10px 10px 10px;
+    width: 30%;
+    margin: 10px;
+    font-size: 15px;
+    color: white;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    /* Light grey */
+    border-top: 10px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin-right: -50%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .position {
+        margin-left: 10%;
+    }
+}

@@ -1,0 +1,5 @@
+Componente de comunidades
+------------------------------------------------
+'post_type': 'Communities',
+'post_content' -> nombres de las comunidades
+--------------Fin componente comunidades--------

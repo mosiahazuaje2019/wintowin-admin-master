@@ -1,0 +1,76 @@
+<div id="wrapper">
+    <app-navigation-v></app-navigation-v>
+    <div id="page-wrapper">
+        <app-navigation></app-navigation>
+        <div *ngIf="bandera == 1" class="row">
+            <div *ngIf="flag == 0" class="loader"></div>
+            <div *ngIf="flag != 0" class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>LISTA DE USUARIOS<button mat-raised-button class="col-6 btn btn-primary" (click)="createUser()">Nuevo usuario</button></h5>
+                                <mat-form-field class="">
+                                    <input matInput class="col-6" (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
+                                </mat-form-field>
+                            </div>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="position">
+                                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="email">
+                                    <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="tlf">
+                                    <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.tlf}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="rol">
+                                    <th mat-header-cell *matHeaderCellDef> Rol </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="option">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Opciones</th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <div class="btn-group">
+                                            <button (click)="userDetails(element.ID);" class="btn btn-info btn-bitbucket">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                            <button *ngIf="element.rol == 'Usuario oferente desactivado' || element.rol == 'Usuario cliente desactivado'" (click)="activate(element.ID);" class="btn btn-success btn-bitbucket">
+                                                <i class="fa fa-check"></i>
+                                            </button>
+                                            <button *ngIf="element.rol == 'Oferente' || element.rol == 'Cliente'" (click)="desactivate(element.ID);" class="btn btn-warning btn-bitbucket">
+                                                <i class="fa fa-ban"></i>
+                                            </button>
+                                            <button (click)="deleteUser(element.ID);" class="btn btn-danger btn-bitbucket">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <mat-paginator #pager [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #pager></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

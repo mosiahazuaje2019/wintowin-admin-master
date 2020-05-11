@@ -1,0 +1,91 @@
+<div id="wrapper">
+    <app-navigation-v></app-navigation-v>
+    <div id="page-wrapper">
+        <app-navigation></app-navigation>
+        <div *ngIf="bandera == 1" class="row">
+            <div *ngIf="flag == 0" class="loader"></div>
+            <div *ngIf="flag != 0" class="wrapper wrapper-content animated fadeInRight">
+                <div style="margin-left:2%;">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="row">
+                                <h2>DETALLE DE USUARIO</h2>
+                                <label>Estado</label>
+                                <button class="btn btn-primary positionE" (click)="changeStatus();">{{contentSts}}</button><br><br>
+                                <div class="table-responsive">
+                                    <form [formGroup]="form" (keydown)="keyDownFunction($event)">
+                                        <table class="table  table-striped table-bordered table-hover dataTables-example">
+                                            <tr class="heightx">
+                                                <h4>Nombre<span>{{name}} {{lastName}}</span></h4>
+                                            </tr>
+                                            <tr class="heightx"> Imagen de perfil
+                                                <img *ngIf="img != '';" height="150" width="150" src="{{server}}{{img}}" alt="">
+                                                <img *ngIf="img == '' || img == undefined" height="150" width="150" src="/src/assets/img/sinFoto.jpg" alt="">
+                                            </tr><br>
+                                            <tr class="heightx">
+                                                <h4> Número de documento: {{numDocument}} </h4>
+                                            </tr>
+                                            <tr class="heightx"> Fotos del documento de identidad
+                                                <a class="btn btn-primary" (click)='photoDocId(true);'>Cara frontal</a>
+                                                <a class="btn btn-primary" (click)='photoDocId(false);'>Cara posterior</a>
+                                            </tr>
+                                            <tr *ngIf="showLic == 1"> Fotos de la licencia
+                                                <a class="btn btn-primary" (click)='photoLic(true);'> Cara frontal</a>
+                                                <a class="btn btn-primary" (click)='photoLic(false);'> Cara posterior</a> Estado: <button class="btn btn-primary" (click)="changeStatusLicences();">{{contentLic}}</button>
+                                            </tr>
+                                            <tr>
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4>E-mail: <input readonly value="{{mail}}" type="email" class="form-control" placeholder="Correo" formControlName="email"></h4>
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4>E-mail corporativo 1:
+                                                    <input value="{{emailCorp1}}" type="email" class="form-control" placeholder="Correo" formControlName="emailCorp1">
+                                                </h4>
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4>E-mail corporativo 2:
+                                                    <input value="{{emailCorp2}}" type="email" class="form-control" placeholder="Correo" formControlName="emailCorp2">
+                                                </h4>
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4>Teléfono:
+                                                    <input value="{{phone}}" type="number" class="form-control" placeholder="Telefono" formControlName="phone">
+                                                </h4>
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4>Rol:
+                                                    <input disabled value="" type="email" class="form-control" placeholder="{{rol}}">
+                                                </h4>
+                                            </tr>
+                                            <!-- <tr class="heightx">
+                                                <h4> Perfil:
+                                                    <input disabled value="" type="email" class="form-control" placeholder="User">
+                                                </h4>
+                                            </tr>
+                                            <tr class="heightx" *ngIf="status == 5">
+                                                <h4> Perfil:
+                                                    <input disabled value="" type="email" class="form-control" placeholder="Correo">
+                                                </h4>
+                                            </tr> -->
+                                            <tr class="heightx">
+                                                <h4> Fecha de registro: {{dateRecord | date : 'shortDate' }}
+                                                </h4>
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4> Wins obtenidos:
+                                                    <input formControlName="wallet" value="{{wallet}}" type="number" class="form-control" placeholder="wins">
+                                                </h4>
+                                            </tr>
+                                            <h4> Grupo beneficiario:</h4>
+                                            <tr *ngFor="let i of listBene" class="heightx">
+                                                <a href="/detalles-usuario/{{i.idUser}}">{{i.name}} {{i.lastName}}</a>
+                                            </tr>
+                                            <button class="btn btn-primary" [disabled]="form.status == 'INVALID'" (click)="save();">Guardar</button>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

@@ -1,0 +1,15 @@
+<div *ngFor="let message of messages; index as position" style="width: 300px;">
+    <p *ngIf="message.post_type == 'listMessage'" style="margin-bottom: 0px">Cliente: {{message.post_title}}</p>
+    <p *ngIf="message.post_type == 'listMessageHero'" style="margin-left: 70%; margin-bottom: 0px">Hero: {{message.post_title}}</p>
+
+    <div *ngIf="message.post_type == 'listMessage'" class="chat" style="margin-top:0px">
+      <p>{{message.post_content}}</p>
+      <span class="time-left">{{messages_hour[position]}}</span>
+    </div>
+    
+    <div *ngIf="message.post_type == 'listMessageHero'" class="chat darker" style="margin-top:0px">
+      <p style="margin-left: 90%">{{message.post_content}}</p>
+      <span class="time-right">{{messages_hour[position]}}</span>
+    </div>
+
+</div>

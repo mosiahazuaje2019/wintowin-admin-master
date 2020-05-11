@@ -1,0 +1,81 @@
+#page-wrapper {
+    padding: inherit;
+}
+
+.btn-primary {
+    background: rgb(91, 166, 236);
+    border: rgb(91, 166, 236);
+    border-radius: 10px 10px 10px 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.btn-primary1 {
+    background: rgb(91, 166, 236);
+    border: rgb(91, 166, 236);
+    border-radius: 10px 10px 10px 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    width: 10px;
+}
+
+.btn-primary:hover {
+    background-color: gray;
+}
+
+.btn-primary1:hover {
+    background-color: gray;
+}
+
+input {
+    border-color: black;
+}
+
+input:focus {
+    border-color: black;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    /* Light grey */
+    border-top: 10px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin-right: -50%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.espaciado,
+.inputNameMod,
+.inputNameRead {
+    width: 73%;
+    margin-left: 20px;
+}
+
+.espaciado {
+    width: 10%;
+    padding-left: 12px;
+}
+
+.inputNameRead {
+    border: none;
+    background-color: transparent;
+}
+
+.margin {
+    width: 50px;
+}

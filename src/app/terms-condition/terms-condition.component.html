@@ -1,0 +1,31 @@
+<div id="wrapper" >
+    <app-navigation-v></app-navigation-v>
+    <div id="page-wrapper" class="page-wrapper">
+        <app-navigation></app-navigation>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Términos y condiciones</h5>
+                        </div>
+                        <div class="ibox-content">
+                          <div *ngIf="flag == 0" class="loader"></div>
+                          <div class="container" *ngIf="flag == 1">
+                            <div class="comment">
+                              <div class="comment-text-area">
+                                <textarea class="textinput" rows='12' value="terms" [(ngModel)]="newTerms"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div style="margin-top:15px;" *ngIf="flag == 1">
+                            <button style="display:block; margin-left: auto; margin-right: auto;" [disabled]="terms.post_content == newTerms" class="btn btn-primary" (click)="updateTerms(terms)">Guardar</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

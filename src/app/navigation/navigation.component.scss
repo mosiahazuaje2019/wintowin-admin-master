@@ -1,0 +1,42 @@
+.navbar{
+    margin-bottom: 0;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.admin{
+    font-size: 20px;
+    margin-top: -7%;
+    opacity: 0.9 ;
+    i{
+        color: white;
+    }
+    span{
+        color: white;
+    }
+}
+
+.btn-default{
+    color: #fff;
+    background-color: black;
+    border-color: #000;
+    margin-top: 19px;
+}
+a.dropdown-toggle{
+    color: white !important;
+}
+.dropdown-menu{
+    a{
+        color:black;
+    }
+}
+.img1{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+}

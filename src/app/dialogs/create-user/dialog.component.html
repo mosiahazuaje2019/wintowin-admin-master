@@ -1,0 +1,110 @@
+<div *ngIf="flag == 0" class="loader"></div>
+<div *ngIf="flag != 0">
+    <div class="row">
+        <h1 mat-dialog-title class="col-sm-8 b-r">Crear usuario</h1>
+        <button mat-button md-dialog-close (click)="createHero();" class="col-sm-4 b-r">Crear Hero</button>
+    </div>
+    <mat-dialog-content>
+
+        <div class="row">
+            <div class="col-sm-4 b-r">
+                <mat-form-field>
+                    <mat-select placeholder="tipo de documento" [(ngModel)]="type">
+                        <mat-option value="option">Cédula de ciudadanía</mat-option>
+                        <mat-option value="option">Pasaporte</mat-option>
+                        <mat-option value="option">Cedula de extranjería</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-8 b-r">
+                <mat-form-field class="example-full-width">
+                    <input type="number" matInput placeholder="Número de documento:" [(ngModel)]="NumDoc">
+                    <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row" mat-dialog-actions>
+            <label class="col-sm-6 b-r">Subir documento de identidad Cara frontal</label>
+            <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="identiFront($event.target.files)">
+            <mat-icon matSuffix>cloud_upload</mat-icon>
+        </div><br><br>
+        <span *ngIf="flag4" style="color: red">{{message[0]}}</span>
+
+        <div class="row" mat-dialog-actions>
+            <label class="col-sm-6 b-r">Subir documento de identidad Cara posterior</label>
+            <input class="col-sm-5 b-r" type="file" id="filePicker" (change)="identiBack($event.target.files)">
+            <mat-icon matSuffix>cloud_upload</mat-icon>
+        </div><br><br>
+        <span *ngIf="flag4" style="color: red">{{message[0]}}</span><br>
+
+        <form class="example-form" [formGroup]="form">
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Nombre" formControlName="name" required>
+                <div *ngIf="!form.controls.name.valid && form.controls.name.dirty">
+                    <span style="color: red" class="help-block m-b-none error">El nombre es requerido y debe tener solo letras.</span>
+                </div>
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Apellido" formControlName="lastName" required>
+                <div *ngIf="!form.controls.lastName.valid && form.controls.lastName.dirty">
+                    <span style="color: red" class="help-block m-b-none error">El apellido es requerido y debe tener solo letras.</span>
+                </div>
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="email" matInput placeholder="Correo" formControlName="email">
+                <div *ngIf="!form.controls.email.valid && form.controls.email.dirty">
+                    <span style="color: red" class="help-block m-b-none error">Introduce un correo valido</span>
+                </div>
+                <mat-icon matSuffix> mail_outline</mat-icon>
+            </mat-form-field>
+
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput placeholder="Ingresa una clave" [type]="hide ? 'password' : 'text'" formControlName="pwd">
+                    <div *ngIf="!form.controls.pwd.valid && form.controls.pwd.dirty">
+                        <span style="color: red" class="help-block m-b-none error">Clave debe tener minimo ocho caracteres</span>
+                    </div>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Teléfono" formControlName="phone">
+                <div *ngIf="!form.controls.phone.valid && form.controls.phone.dirty">
+                    <span style="color: red" class="help-block m-b-none error">El telefono es requerido</span>
+                </div>
+                <mat-icon matSuffix> call</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Código de tu grupo:" formControlName="code">
+                <div *ngIf="!form.controls.code.valid && form.controls.code.dirty">
+                    <span style="color: red" class="help-block m-b-none error">El código de grupo es requerido</span>
+                </div>
+                <mat-icon matSuffix>done</mat-icon>
+            </mat-form-field>
+
+            <form class="example-form" [formGroup]="formEmails">
+                <mat-form-field class="example-full-width">
+                    <input type="email" matInput placeholder="Correo opcional uno" formControlName="mail1">
+                    <mat-icon matSuffix> mail_outline</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input type="email" matInput placeholder="Correo opcional dos" formControlName="mail2">
+                    <mat-icon matSuffix> mail_outline</mat-icon>
+                </mat-form-field>
+            </form>
+        </form>
+    </mat-dialog-content>
+
+    <div mat-dialog-actions>
+        <button mat-raised-button class="btn btn-danger" (click)="close();">Cancelar</button>
+        <button [disabled]="aux1 != 1 || aux2 != 1 || flag1 == true || NumDoc == '' || NumDoc == undefined || form.status == 'INVALID' ||formEmails.status == 'INVALID'" mat-raised-button class="btn btn-primary" (click)="save();">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div id="wrapper">
+    <app-navigation-v></app-navigation-v>
+    <div id="page-wrapper">
+        <app-navigation></app-navigation>
+        <div class="row">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div style="margin-left:2%;" class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="row">
+                                <h2>DETALLE DE VEHÍCULO</h2>
+                                <label>Estado</label>
+                                <button class="btn btn-primary positionE" (click)="updateSatatus();">{{estado}}</button><br><br>
+                                <div class="table-responsive">
+                                    <form [formGroup]="form">
+                                        <table class="table  table-striped table-bordered table-hover dataTables-example">
+                                            <tr class="heightx">
+                                                <button class="btn btn-secondary" (click)="photoSoat();">SOAT frontal</button>
+                                                <button class="btn btn-secondary" (click)="photoSoatBack();">SOAT trasera</button>
+                                                <button class="btn btn-secondary" (click)="tenomecanica();">Revisión tecnomecánica</button>
+                                                <button class="btn btn-secondary" (click)="propiedad();">Tarjeta de propiedad</button>
+                                                <button class="btn btn-secondary" (click)="propiedadBack();">Tarjeta de propiedad trasera</button>
+                                                <button class="btn btn-secondary" (click)="photoSecurity();">Póliza contra todo riesgos</button>
+                                                <!-- <button class="btn btn-primary position" (click)="changeStatusPhotoCar();"></button> -->
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4>Marca </h4><input type="text" class="form-control" formControlName="newMarca"></tr>
+                                            <tr class="heightx">
+                                                <h4>Línea </h4><input type="text" class="form-control" formControlName="newLinea"></tr>
+                                            <tr class="heightx">
+                                                <h4>Modelo </h4><input type="text" class="form-control" formControlName="newModelo"></tr>
+                                            <tr class="heightx">
+                                                <h4>Usuario </h4>{{usuario}}</tr>
+                                            <tr class="heightx">
+                                                <h4>Placa </h4><input type="text" class="form-control" formControlName="newPlaca"></tr>
+                                            <tr class="heightx">
+                                                <h4>Lugar matrícula </h4><input value="{{lugar_matricula}}" type="text" class="form-control" formControlName="newLugar"> </tr>
+                                            <tr class="heightx">
+                                                <h4>Fecha de registro</h4>
+                                                {{fecha | date}}
+                                            </tr>
+                                            <tr class="heightx">
+                                                <h4> Wins obtenidos: </h4> {{wins}}</tr>
+                                            <tr class="heightx">
+                                                <h4> Grupo beneficiario:</h4>
+                                                <p *ngFor="let gr of grupo">{{gr}}</p>
+                                            </tr>
+                                            <tr class="heightx"><button class="btn btn-primary" [disabled]="form.status=='INVALID'" (click)="updateCar();">Guardar</button></tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
