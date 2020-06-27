@@ -75,7 +75,7 @@ export class MarcaComponent implements OnInit {
     let d = confirm("Al borrar esta marca no podra ser recuperada. ¿Desea continuar?");
     if (d == true){
       const time = Date.now().toString();                                                                                     
-      this.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `zadmin_wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idMarca});
+      this.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idMarca});
       this.corek.socket.on(time+"detele_user", (dele)=>{
         this.process();
       });

@@ -55,7 +55,7 @@ message = [];
               console.log(this.respuestaImagenEnviada.msj);
               console.log(this.id);
               const time = Date.now().toString();
-              this.corek.socket.emit('query',{'querystring':"UPDATE `zadmin_wintowin`.`wp_users` SET `display_name` = '"+this.respuestaImagenEnviada.msj+"' WHERE `wp_users`.`ID` = "+this.id});            
+              this.corek.socket.emit('query',{'querystring':"UPDATE `wintowin`.`wp_users` SET `display_name` = '"+this.respuestaImagenEnviada.msj+"' WHERE `wp_users`.`ID` = "+this.id});            
               this.corek.socket.on('query',(data)=>{
                 console.log(data);
               })

@@ -56,7 +56,7 @@ flag=0;
     let d = confirm("Al borrar este mensaje no podra ser recuperado. ¿Desea continuar?");
     if (d == true){
       const time = Date.now().toString();                                                                              
-      this.conf.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `zadmin_wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idPost});
+      this.conf.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idPost});
       alert('eliminado');
       this.process();
     }

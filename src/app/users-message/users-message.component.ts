@@ -35,7 +35,6 @@ public items = [];
     const time = Date.now().toString();
     this.corek.socket.emit('query',{'event':time + 'query1', 'querystring':"SELECT * FROM `wp_posts` WHERE `post_type` LIKE 'listMessage'",  key: time});
     this.corek.socket.on(time + "query1",(data1,key)=> {
-      console.log(data1);
       if(time == key){
         if (data1.error){
           this.reconectar();
@@ -62,16 +61,17 @@ public items = [];
   }
 
   showDetails(id){
-    console.log(id);
     const dialogRef = this.dialog.open(ChatComponent, {data:id});
     dialogRef.afterClosed().subscribe(result => {});
   }
 
   deleteMessage(data){
+    console.log(data);
     let time = Date.now().toString();
     let d = confirm("Al borrar esta conversacion no podra ser recuperada. ¿Desea continuar?");
     if (d == true){
-      this.corek.socket.emit('query',{'event':time + "del", 'querystring':"DELETE FROM `zadmin_wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+data.ID});
+      console.log("va a borrar");
+      this.corek.socket.emit('query',{'event':time + "del", 'querystring':"DELETE FROM `wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+data.ID});
       this.prosess();
     }
   }

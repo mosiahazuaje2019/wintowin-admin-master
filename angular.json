@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "angular-material-begin"
+  "defaultProject": "angular-material-begin",
+  "cli": {
+    "analytics": false
+  }
 }

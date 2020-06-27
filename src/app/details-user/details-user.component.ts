@@ -273,7 +273,7 @@ export class DetailsUserComponent implements OnInit {
     this.conf.corek.socket.emit("update_user",{"set":{"user_login":this.form.value.phone},"condition":{"ID":this.idUser}, 'event':time + 'update_user'});
     }
     if(this.form.value.wallet != '' && this.form.value.wallet != undefined && this.form.value.wallet != null){
-      this.conf.corek.socket.emit('query',{'event':time + 'update_userWalle', 'querystring':"UPDATE `zadmin_wintowin`.`wp_users` SET `wallet` = "+this.form.value.wallet+" WHERE `wp_users`.`user_activation_key` LIKE '"+this.codeGroup+"'"});
+      this.conf.corek.socket.emit('query',{'event':time + 'update_userWalle', 'querystring':"UPDATE `wintowin`.`wp_users` SET `wallet` = "+this.form.value.wallet+" WHERE `wp_users`.`user_activation_key` LIKE '"+this.codeGroup+"'"});
     }
     if(this.form.value.emailCorp1 != '' && this.form.value.emailCorp1 != undefined && this.form.value.emailCorp1 != null){
       this.getJ1.mail1 = this.form.value.emailCorp1;

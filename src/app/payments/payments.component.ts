@@ -85,7 +85,7 @@ export class PaymentsComponent implements OnInit {
     let d = confirm("Al borrar este registro no podra ser recuperado. ¿Desea continuar?");
     if (d == true){
       const time = Date.now().toString();                                                                                
-      this.corek.socket.emit('query',{'event':time +"deteletrans", 'querystring':"DELETE FROM `zadmin_wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idTrans});
+      this.corek.socket.emit('query',{'event':time +"deteletrans", 'querystring':"DELETE FROM `wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idTrans});
       alert('Eliminado');
       this.process();
     }

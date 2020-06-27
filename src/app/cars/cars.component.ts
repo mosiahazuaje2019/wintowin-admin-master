@@ -138,7 +138,7 @@ export class CarsComponent implements OnInit {
     if (d == true){
       console.log(idCar);
       const time = Date.now().toString();                                                                                   
-      this.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `zadmin_wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idCar});
+      this.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `wintowin`.`wp_posts` WHERE `wp_posts`.`ID` = "+idCar});
       alert('eliminado');
       this.proceso();
     }

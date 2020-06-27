@@ -211,7 +211,7 @@ export class UsersComponent implements OnInit {
     let d = confirm("Al borrar este usuario no podra ser recuperado. ¿Desea continuar?");
     if (d == true){ 
       const time = Date.now().toString();                                                                                
-      this.conf.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `zadmin_wintowin`.`wp_users` WHERE `wp_users`.`ID` = "+idUser});
+      this.conf.corek.socket.emit('query',{'event':time +"detele_user", 'querystring':"DELETE FROM `wintowin`.`wp_users` WHERE `wp_users`.`ID` = "+idUser});
       this.conf.corek.socket.emit('query',{'event':time +"detele_user_meta", 'querystring':"DELETE FROM wp_usermeta WHERE wp_usermeta.user_id = "+idUser});
       this.conf.corek.socket.emit('query',{'event':time +"delete_car", 'querystring':"DELETE FROM `wp_posts` WHERE `guid` = "+idUser});
       this.conf.corek.socket.on(time +"detele_user_meta", (response)=>{
